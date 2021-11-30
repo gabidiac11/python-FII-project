@@ -19,8 +19,7 @@
 # ---file4: continut4
 
 
-#TODO:
-# - read from file
+# TODO:
 # - get main arguments from console
 # - test on linux when fix are done
 # - test if gitignore doesn't ignore important files
@@ -29,8 +28,15 @@ import json
 import os
 
 
-def get_json_text(pathJson):
-    return '{"dir1" : {"dir2": {"file1": "continut1", "file2": "continut2"}, "file3": "continut3"}, "file4": "continut4"}'
+def get_json_text(path_json):
+    if not(os.path.exists(path_json)):
+        raise Exception("Path to json '" + path_json + "' doesn't exit.")
+
+    if not(os.path.isfile(path_json)):
+        raise Exception("Path to json '" + path_json + "' does NOT point to a file.")
+
+    f = open(path_json, "r")
+    return f.read()
 
 
 def create_file(path, content):
@@ -69,11 +75,9 @@ def main(root, path_json):
     create_structure(root, obj)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     try:
-        main("./output", "./input/source1.json")
+        main("./output", "./input/source2.json")
     except Exception as e:
         print(e)
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        
