@@ -23,21 +23,25 @@
 # - read from file
 # - get main arguments from console
 # - test on linux when fix are done
+# - test if gitignore doesn't ignore important files
 
 import json
 import os
 
-def getJsonText(pathJson):
+
+def get_json_text(pathJson):
     return '{"dir1" : {"dir2": {"file1": "continut1", "file2": "continut2"}, "file3": "continut3"}, "file4": "continut4"}'
 
-def createFile(path, content):
+
+def create_file(path, content):
     f = open(path, 'w+')
     f.write(content)
     f.close()
 
     print("Created/overwritten file " + path + ", with content '" + content + "'")
 
-def createFolder(path):
+
+def create_folder(path):
     if os.path.exists(path) and os.path.isdir(path):
         print("Folder already exists: " + path)
         return
@@ -49,27 +53,26 @@ def createFolder(path):
     os.mkdir(path)
     print("Folder created " + path)
 
-def createStructure(root, obj):
-    createFolder(root)
+
+def create_structure(root, obj):
+    create_folder(root)
 
     for key in obj:
         if type(obj[key]) is str:
-            createFile(os.path.join(root, key), obj[key])
+            create_file(os.path.join(root, key), obj[key])
         if type(obj[key]) == dict:
-            createStructure(os.path.join(root, key), obj[key])
+            create_structure(os.path.join(root, key), obj[key])
 
 
-def main(root, pathJson):
-    obj = json.loads(getJsonText(pathJson))
-    createStructure(root, obj)
+def main(root, path_json):
+    obj = json.loads(get_json_text(path_json))
+    create_structure(root, obj)
 
-root = "./output"
-pathJson = "./"
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     try:
-        main(root, pathJson)
+        main("./output", "./input/source1.json")
     except Exception as e:
         print(e)
 
