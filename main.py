@@ -20,9 +20,9 @@
 
 
 # TODO:
-# - get main arguments from console
 # - test on linux when fix are done
 # - test if gitignore doesn't ignore important files
+# - do more testing cases!
 
 import json
 import os
@@ -75,9 +75,9 @@ def main(root, path_json):
     create_structure(root, obj)
 
 
+# run from pycharm for testing
 if __name__ == '__main__':
     try:
         main("./output", "./input/source2.json")
     except Exception as e:
         print(e)
-        
