@@ -70,9 +70,22 @@ def create_structure(root, obj):
             create_structure(os.path.join(root, key), obj[key])
 
 
+def print_folder(path):
+    print("\nResults: ")
+
+    for dir_path_name, directory_names, file_names in os.walk(path):
+        level = dir_path_name.replace(path, "").count(os.sep)
+
+        print("{}{}/".format("-" * 4 * level, os.path.basename(dir_path_name)))
+
+        for f in file_names:
+            print("{}{}".format("-" * 4 * (level + 1), f))
+
+
 def main(root, path_json):
     obj = json.loads(get_json_text(path_json))
     create_structure(root, obj)
+    print_folder(root)
 
 
 # run from pycharm for testing

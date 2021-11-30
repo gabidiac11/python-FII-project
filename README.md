@@ -55,7 +55,7 @@ create_structure.py root_folder_path structure_json_file_path
 
 Exemplu output:
 
-![img.png](img.png)
+![img_2.png](img_2.png)
 
 3. Mentiuni
 
