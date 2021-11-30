@@ -4,7 +4,7 @@
 Diac P. Gabriel
 3A2
 
-Name: Generate structure ID:6 Difficulty: B Propose: TDY
+### Generate structure ID:6 Difficulty: B Propose: TDY
 
 Creati un script care primeste de la linia de comanda un path catre un director si un fisier
 JSON. In fisierul JSON se afla un dictionar in care se afla o structura de directoare si fisiere
