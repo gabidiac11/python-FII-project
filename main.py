@@ -18,12 +18,6 @@
 # ------file3: continut3
 # ---file4: continut4
 
-
-# TODO:
-# - test on linux when fix are done
-# - test if gitignore doesn't ignore important files
-# - do more testing cases!
-
 import json
 import os
 
